@@ -37,11 +37,8 @@ namespace ConsoleApp1
                 //Layout de questão padrão
 
 
-                bool q1 = true;
+               
                 
-
-                while (q1)
-                {
                     Console.WriteLine("Question 1");
                     Console.WriteLine("The Greastest Tragedy of the Emperium was The ... Heresy");
                     Console.WriteLine("<1> - Guilimman");
@@ -55,7 +52,6 @@ namespace ConsoleApp1
                     {
                         Console.WriteLine("Great Work Loyalist!");
                         numAcertos++;
-                        q1 = false;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
@@ -63,31 +59,28 @@ namespace ConsoleApp1
                     {
                         Console.WriteLine("Wrong Answer, Heretic!, Try Again");
                         numErros++;
-                        q1 = true;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                         //pausa entre cada resposta
                     }
-                }
+                
 
 
-                bool q2 = true;
-                while (q2)
-                {
+                
+             
                     Console.WriteLine("Question 2");
                     Console.WriteLine("The Primarch of the Ultramarines is...");
                     Console.WriteLine("<1> - Guilimman");
                     Console.WriteLine("<2> - Sanguinius");
                     Console.WriteLine("<3> - Slannesh");
-                    int resposta = Convert.ToInt32(Console.ReadLine());
+                    resposta = Convert.ToInt32(Console.ReadLine());
                     //por algum motivo as respostas não funcionam se não tiver a linha acima, ainda não entendi o porque, mais acho que preciso sempre chamar a resposta de
                     //uma forma ou outra
 
                     if (resposta == 1)
                     {
                         Console.WriteLine("Great Work Loyalist!");
-                        numAcertos++;
-                        q2 = false;
+                        numAcertos++;;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
@@ -95,27 +88,25 @@ namespace ConsoleApp1
                     {
                         Console.WriteLine("Wrong Answer, Heretic!, Try Again");
                         numErros++;
-                        q2 = true;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
 
                     }
-                }
-                bool q3 = true;
-                while (q3)
-                {
+                
+              
+                
+                
                     Console.WriteLine("Question 3");
                     Console.WriteLine("Who was responsable for the fall of cadia?");
                     Console.WriteLine("<1> - Abaddon");
                     Console.WriteLine("<2> - Khorne");
                     Console.WriteLine("<3> - Nurgle");
-                    int resposta = Convert.ToInt32(Console.ReadLine());
+                    resposta = Convert.ToInt32(Console.ReadLine());
 
                     if (resposta == 1)
                     {
                         Console.WriteLine("Great Work Loyalist!");
                         numAcertos++;
-                        q3 = false;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
@@ -123,27 +114,25 @@ namespace ConsoleApp1
                     {
                         Console.WriteLine("Wrong Answer, Heretic!, Try Again");
                         numErros++;
-                        q3 = true;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
-                }
+                
 
-                bool q4 = true;
-                while (q4)
-                {
+                
+                
+                
                     Console.WriteLine("Question 4");
                     Console.WriteLine("Lion El'Johnson is the founder of the ... Chapter");
                     Console.WriteLine("<1> - Blood Angels");
                     Console.WriteLine("<2> - Dark Angels");
                     Console.WriteLine("<3> - Salamanders");
-                    int resposta = Convert.ToInt32(Console.ReadLine());
+                    resposta = Convert.ToInt32(Console.ReadLine());
 
                     if (resposta == 2)
                     {
                         Console.WriteLine("Great Work Loyalist!");
                         numAcertos++;
-                        q4 = false;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
@@ -151,36 +140,31 @@ namespace ConsoleApp1
                     {
                         Console.WriteLine("Wrong Answer, Heretic!, Try Again");
                         numErros++;
-                        q4 = false;
                         Console.WriteLine("Press <enter> to continue");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
-                }
-                bool q5 = true;
-                while (q5)
-                {
+                
+                
                     Console.WriteLine("Question 5");
                     Console.WriteLine("Which one of these is a chaos lord?");
                     Console.WriteLine("<1> - Sanguinius");
                     Console.WriteLine("<2> - Abaddon");
                     Console.WriteLine("<3> - Khorne");
-                    int resposta = Convert.ToInt32(Console.ReadLine());
+                    resposta = Convert.ToInt32(Console.ReadLine());
 
                     if (resposta == 3)
                     {
                         Console.WriteLine("Great Work Loyalist!");
                         numAcertos++;
-                        q5 = false;
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
                     else
                     {
                         Console.WriteLine("Wrong Answer, Heretic!, Try Again");
                         numErros++;
-                        q5 = true;
                         while (Console.ReadKey().Key != ConsoleKey.Enter) ;
                     }
-                }
+                
                 Console.WriteLine("Congratulations! You have gone through this standard imperium knowledge test, here are your results:");
                 Console.WriteLine("Correct Answers:" + numAcertos);
                 Console.WriteLine("Wrong Answers:" + numErros);

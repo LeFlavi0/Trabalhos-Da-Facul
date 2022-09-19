@@ -1,0 +1,287 @@
+using System;
+using System.Diagnostics;
+using System.Linq.Expressions;
+using System.Reflection.Emit;
+using System.Security.Policy;
+using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Integrantes do Grupo: Flávio Augusto Ribeiro Assumpção, Bernardo Bonin
+
+            bool loop = true;
+            //mais uma vez usamos o bool para manter o jogo loopavel.
+
+            while (loop)
+            {
+                int resposta;
+                Console.WriteLine("Seu Nome é Detetive Marcos Wright, Um detetive novato que quer provar sua proeza na arte das investigações.");
+                Console.WriteLine("Você foi chamado até uma pequena cidade, para investigar um assasinato...");
+                Console.WriteLine("Que bom que você chegou detetive! Precisamos de sua ajuda para desvendar esse assassinato, você aceita o caso?");
+                Console.WriteLine("<1> Sim <2> Não");
+                resposta = Convert.ToInt32(Console.ReadLine());
+                if (resposta == 1)
+                {
+                    Console.WriteLine("Você anda em direção do local do corpo e a sala está um pouco bagunçada, você pensa o que pode ter acontecido:");
+                    Console.WriteLine("<1> A vítima tentou se defender <2> O assassino bagunçou tudo");
+                    resposta = Convert.ToInt32(Console.ReadLine());
+                    if (resposta == 1)
+                    {
+                        Console.WriteLine("Após a vistoria na sala, ao se aproximar da vítima você percebe pequenos cortes limpos no corpo, como ela pode ter sido assassinada?");
+                        Console.WriteLine("<1> Tiro <2> Facada");
+                        resposta = Convert.ToInt32(Console.ReadLine());
+                        if (resposta == 1)
+                        {
+                            Console.WriteLine("Os Investigadores, olhando confusos a sua obvia falha de dedução, decidem te tirar do caso, pois você obiviamente não está bem.");
+                            Console.WriteLine("Embora você não tenha sido demitido, no dia seguinte você é rebaixado a guarda de transito. todos os anos na academia jogados fora...");
+                            Console.WriteLine("GAME OVER");
+                            Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                            resposta = Convert.ToInt32(Console.ReadLine());
+                            if (resposta == 1)
+                            {
+                                loop = true;
+                            }
+                            if (resposta == 2)
+                            {
+                                return;
+                            }
+                        }
+                        if (resposta == 2)
+                        {
+                            Console.WriteLine("Ao confirmar que eram cortes de faca, você percebe que não há sangue apenas da vítima, o que pode significar que o assassino também se feriu, o que você acha melhor fazer?");
+                            Console.WriteLine("<1> Seguir o rastro <2> Recolher amostra");
+                            resposta = Convert.ToInt32(Console.ReadLine());
+                            if (resposta == 1)
+                            {
+                                Console.WriteLine("Você vê que o rastro passa pela janela da sala e segue para um beco escuro, você pensa na melhor abordagem");
+                                Console.WriteLine("<1> Ir sozinho sorrateiramente <2> Esperar reforço");
+                                resposta = Convert.ToInt32(Console.ReadLine());
+                                if (resposta == 1)
+                                {
+                                    Console.WriteLine("Você segue silenciosamente até que ouve um barulho vindo de uma caçamba de lixo, você tem que agir sabiamente");
+                                    Console.WriteLine("<1> Gritar pro assassino se render <2> Avançar cuidadosamente");
+                                    resposta = Convert.ToInt32(Console.ReadLine());
+                                    if (resposta == 1)
+                                    {
+                                        Console.WriteLine("Após o alerta nada acontece, você vê apenas um gato saindo de trás da caçamba, o assassino, agora alarmado, ouve e consegue armar uma emboscada para você,");
+                                        Console.WriteLine("Após uma breve luta, você é pego despreparado e gravemente ferido, a ultima coisa que você consegue ver antes de morrer é o assasino correndo");
+                                        Console.WriteLine("GAME OVER");
+                                        Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                        resposta = Convert.ToInt32(Console.ReadLine());
+                                        if (resposta == 1)
+                                        {
+                                            loop = true;
+                                        }
+                                        if (resposta == 2)
+                                        {
+                                            return;
+                                        }
+                                    }
+                                    if (resposta == 2)
+                                    {
+                                        Console.WriteLine("Você chega no fim do beco e encontra o assassino encurralado, ele está ferido e cansado");
+                                        Console.WriteLine("<1> Estancar o sangramento e o levar para a justiça <2> Acabar com seu sofrimento");
+                                        resposta = Convert.ToInt32(Console.ReadLine());
+                                        if (resposta == 1)
+                                        {
+                                            Console.WriteLine("Você algema o assasino, e depois estanca o sangramento até a ambulancia chegar.");
+                                            Console.WriteLine("Obrigado pela sua ajuda detetive! Sem o seu auxílio não conseguiríamos pegar o assassino tão rápido!");
+                                            Console.WriteLine("Ele irá para o hospital e depois será devidamente julgado, a comunidade agradece pelo seu serviço!");
+                                            Console.WriteLine("Com o assasino pego, Você volta para a estação e recebe uma promoção na semana seguinte.");
+                                            Console.WriteLine("Parabens! Você chegou no final bom! Obrigado por jogar!");
+                                            Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                            resposta = Convert.ToInt32(Console.ReadLine());
+                                            if (resposta == 1)
+                                            {
+                                                loop = true;
+                                            }
+                                            if (resposta == 2)
+                                            {
+                                                return;
+                                            }
+                                        }
+                                        if (resposta == 2)
+                                        {
+                                            Console.WriteLine("Você mata o assassino, apesar de achar ser um ato piedoso, os oficiais te criticam por ter tomado uma medida tão extrema,");
+                                            Console.WriteLine("Por ter matado alguém e não ter levado o assassino para a justiça na prisão, você é demitido, você não é mais um detetive.");
+                                            Console.WriteLine("GAME OVER");
+                                            Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                            resposta = Convert.ToInt32(Console.ReadLine());
+                                            if (resposta == 1)
+                                            {
+                                                loop = true;
+                                            }
+                                            if (resposta == 2)
+                                            {
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+                                if (resposta == 2)
+                                {
+                                    Console.WriteLine("Você espera uma viatura chegar, vocês juntos vão até o fim do beco, mas não encontram ninguém...");
+                                    Console.WriteLine("Por causa da demora o assassino deve ter se escapado e ele não irá para a justiça tão cedo...");
+                                    Console.WriteLine("Os oficiais ficam desapontados com você, e embora você não seja demitido, você não ira pegar um caso bom tão cedo");
+                                    Console.WriteLine("GAME OVER");
+                                    Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                    resposta = Convert.ToInt32(Console.ReadLine());
+                                    if (resposta == 1)
+                                    {
+                                        loop = true;
+                                    }
+                                    if (resposta == 2)
+                                    {
+                                        return;
+                                    }
+                                }
+                            }
+                            if (resposta == 2)
+                            {
+                                Console.WriteLine("Você colhe as amostras de DNA da arma e manda para a análise, encerrando por enquanto");
+                                Console.WriteLine("Você descobre dias depois que aquela arma na verdade era da vítima, e por conta do péssimo desempenho você foi demitido.");
+                                Console.WriteLine("GAME OVER");
+                                Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                resposta = Convert.ToInt32(Console.ReadLine());
+                                if (resposta == 1)
+                                {
+                                    loop = true;
+                                }
+                                if (resposta == 2)
+                                {
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    if (resposta == 2)
+                    {
+                        Console.WriteLine("Parece que o assassino também saqueou o lugar, seria bom procurar pistas");
+                        Console.WriteLine("Investigando, você vê algumas marcas de corte parecidas com a do corpo da vítima, e acha a possível arma do crime");
+                        Console.WriteLine("<1> Arma  <2> Faca");
+                        resposta = Convert.ToInt32(Console.ReadLine());
+                        if (resposta == 1)
+                        {
+                            Console.WriteLine("Você colhe as amostras de DNA da arma e manda para a análise, encerrando por enquanto");
+                            Console.WriteLine("Você descobre dias depois que aquela arma na verdade era da vítima, e por conta do péssimo desempenho você foi demitido.");
+                            Console.WriteLine("GAME OVER");
+                            Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                            resposta = Convert.ToInt32(Console.ReadLine());
+                            if (resposta == 1)
+                            {
+                                loop = true;
+                            }
+                            if (resposta == 2)
+                            {
+                                return;
+                            }
+                        }
+                        if (resposta == 2)
+                        {
+                            Console.WriteLine("Ao confirmar que eram cortes de faca, você percebe que não há sangue apenas da vítima, o que pode significar que o assassino também se feriu, o que você acha melhor fazer?");
+                            Console.WriteLine("<1> Seguir o rastro <2> Recolher amostra");
+                            resposta = Convert.ToInt32(Console.ReadLine());
+                            if (resposta == 1)
+                            {
+                                Console.WriteLine("Você vê que o rastro passa pela janela da sala e segue para um beco escuro, você pensa na melhor abordagem");
+                                Console.WriteLine("<1> Ir sozinho sorrateiramente <2> Esperar reforço");
+                                resposta = Convert.ToInt32(Console.ReadLine());
+                                if (resposta == 1)
+                                {
+                                    Console.WriteLine("Você segue silenciosamente até que ouve um barulho vindo de uma caçamba de lixo, você tem que agir sabiamente");
+                                    Console.WriteLine("<1> Gritar pro assassino se render <2> Avançar cuidadosamente");
+                                    resposta = Convert.ToInt32(Console.ReadLine());
+                                    if (resposta == 1)
+                                    {
+                                        Console.WriteLine("Após o alerta nada acontece, você vê apenas um gato saindo de trás da caçamba, o assassino, agora alarmado, ouve e consegue armar uma emboscada para você,");
+                                        Console.WriteLine("Após uma breve luta, você é pego despreparado e gravemente ferido, a ultima coisa que você consegue ver antes de morrer é o assasino correndo");
+                                        Console.WriteLine("GAME OVER");
+                                        Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                        resposta = Convert.ToInt32(Console.ReadLine());
+                                        if (resposta == 1)
+                                        {
+                                            loop = true;
+                                        }
+                                        if (resposta == 2)
+                                        {
+                                            return;
+                                        }
+                                    }
+                                    if (resposta == 2)
+                                    {
+                                        Console.WriteLine("Você chega no fim do beco e encontra o assassino encurralado, ele está ferido e cansado");
+                                        Console.WriteLine("<1> Estancar o sangramento e o levar para a justiça <2> Acabar com seu sofrimento");
+                                        resposta = Convert.ToInt32(Console.ReadLine());
+                                        if (resposta == 1)
+                                        {
+                                            Console.WriteLine("Você algema o assasino, e depois estanca o sangramento até a ambulancia chegar.");
+                                            Console.WriteLine("Obrigado pela sua ajuda detetive! Sem o seu auxílio não conseguiríamos pegar o assassino tão rápido!");
+                                            Console.WriteLine("Ele irá para o hospital e depois será devidamente julgado, a comunidade agradece pelo seu serviço!");
+                                            Console.WriteLine("Com o assasino pego, Você volta para a estação e recebe uma promoção na semana seguinte.");
+                                            Console.WriteLine("Parabens! Você chegou no final bom! Obrigado por jogar!");
+                                            Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                            resposta = Convert.ToInt32(Console.ReadLine());
+                                            if (resposta == 1)
+                                            {
+                                                loop = true;
+                                            }
+                                            if (resposta == 2)
+                                            {
+                                                return;
+                                            }
+                                        }
+                                        if (resposta == 2)
+                                        {
+                                            Console.WriteLine("Você mata o assassino, apesar de achar ser um ato piedoso, os oficiais te criticam por ter tomado uma medida tão extrema,");
+                                            Console.WriteLine("Por ter matado alguém e não ter levado o assassino para a justiça na prisão, você é demitido, você não é mais um detetive.");
+                                            Console.WriteLine("GAME OVER");
+                                            Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                            resposta = Convert.ToInt32(Console.ReadLine());
+                                            if (resposta == 1)
+                                            {
+                                                loop = true;
+                                            }
+                                            if (resposta == 2)
+                                            {
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+                                if (resposta == 2)
+                                {
+                                    Console.WriteLine("Decidindo recusar o caso, você pega suas coisas e vai embora. No dia seguinte você é demitido por não cumprir seu dever.");
+                                    Console.WriteLine("GAME OVER.");
+                                    Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                                    resposta = Convert.ToInt32(Console.ReadLine());
+                                    if (resposta == 1)
+                                    {
+                                        loop = true;
+                                    }
+                                    if (resposta == 2)
+                                    {
+                                        return;
+                                    }
+                                }
+
+
+
+
+
+
+
+
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

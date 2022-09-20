@@ -12,7 +12,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Integrantes do Grupo: Flávio Augusto Ribeiro Assumpção, Bernardo Bonin
+            //Integrantes do Grupo: Flávio Augusto Ribeiro Assumpção, Bernardo Bonin Galon
 
             bool loop = true;
             //mais uma vez usamos o bool para manter o jogo loopavel.
@@ -250,12 +250,13 @@ namespace ConsoleApp1
                                             {
                                                 return;
                                             }
+
                                         }
                                     }
                                 }
                                 if (resposta == 2)
                                 {
-                                    Console.WriteLine("Decidindo recusar o caso, você pega suas coisas e vai embora. No dia seguinte você é demitido por não cumprir seu dever.");
+                                    Console.WriteLine("Você espera uma viatura chegar, vocês juntos vão até o fim do beco, mas não encontram ninguém, por causa da demora o assassino deve ter se escondido e ele não irá para a justiça tão cedo, pelo menos até examinarem a amostra na faca, o assassino será encontrado, mas os oficiais ficam desapontados com você");
                                     Console.WriteLine("GAME OVER.");
                                     Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
                                     resposta = Convert.ToInt32(Console.ReadLine());
@@ -268,17 +269,24 @@ namespace ConsoleApp1
                                         return;
                                     }
                                 }
-
-
-
-
-
-
-
-
-
                             }
+
                         }
+                    }
+                }
+                if (resposta == 2)
+                {
+                    Console.WriteLine("Decidindo recusar o caso, você pega suas coisas e vai embora. No dia seguinte você é demitido por não cumprir seu dever.");
+                    Console.WriteLine("GAME OVER.");
+                    Console.WriteLine("Deseja recomeçar? 1 = Sim 2 = Não");
+                    resposta = Convert.ToInt32(Console.ReadLine());
+                    if (resposta == 1)
+                    {
+                        loop = true;
+                    }
+                    if (resposta == 2)
+                    {
+                        return;
                     }
                 }
             }
